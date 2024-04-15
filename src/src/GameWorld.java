@@ -43,12 +43,12 @@ public class GameWorld {
             Scanner s = new Scanner(System.in);
             System.out.println("Enter direction: ");
             direction = s.nextLine();
-            space = checkforspeace(direction);
+            space = checkForSpace(direction);
         }
 
     }
 
-    public String checkforspeace(String s){
+    public String checkForSpace(String s){
         int x = 0;
         switch(s){
             case "n":
@@ -63,27 +63,30 @@ public class GameWorld {
                 }
             case "s":
                 x = human.getX() + 1;
-                System.out.println("out of dimension");
-                if(x>=dimension)
+                if(x>=dimension){
+                    System.out.println("out of dimension");
                     return "no";
+                }
                 else {
                     human.setX(human.getX() + 1);
                     return "yes";
                 }
             case "e":
                 x = human.getY() + 1;
-                System.out.println("out of dimension");
-                if(x>=dimension)
+                if(x>=dimension){
+                    System.out.println("out of dimension");
                     return "no";
+                }
                 else {
                     human.setY(human.getY() + 1);
                     return "yes";
                 }
             case "w":
                 x = human.getY() - 1;
-                System.out.println("out of dimension");
-                if(x<0)
+                if(x<0){
+                    System.out.println("out of dimension");
                     return "no";
+                }
                 else {
                     human.setY(human.getY() - 1);
                     return "yes";
